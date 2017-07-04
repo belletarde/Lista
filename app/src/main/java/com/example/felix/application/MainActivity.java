@@ -11,19 +11,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Conta c = new Conta();
-        ContaCorrente cc = new ContaCorrente();
-        ContaPoupanca cp = new ContaPoupanca();
+        Conta cc = new ContaCorrente();
+        Conta cp = new ContaPoupanca();
 
         c.deposita(1000);
         cc.deposita(1000);
         cp.deposita(1000);
 
-        c.atualiza(0.01);
-        cc.atualiza(0.01);
-        cp.atualiza(0.01);
+        AtualizadorDeContas adc = new AtualizadorDeContas(0.01);
+
+        adc.roda(c);
+        adc.roda(cc);
+        adc.roda(cp);
 
         Alert t = new Alert();
-        t.getAlert("Java","1) "+c.getSaldo()+"\n"+"2)"+cc.getSaldo()+"\n"+"3)"+cp.getSaldo(),this);
+        t.getAlert("Java","1) "+c.getSaldo()+"\n"+"2)"+cc.getSaldo()+"\n"+"3)"+cp.getSaldo()+"\n\n"+"Saldo Total: " + adc.getSaldoTotal(),this);
+
+
 
     }
 
