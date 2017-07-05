@@ -20,10 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         AtualizadorDeContas adc = new AtualizadorDeContas(0.01);
 
-        adc.roda(c);
-        adc.roda(cc);
-        adc.roda(cp);
-
+        
         Alert t = new Alert();
         t.getAlert("Java","1) "+c.getSaldo()+"\n"+"2)"+cc.getSaldo()+"\n"+"3)"+cp.getSaldo()+"\n\n"+"Saldo Total: " + adc.getSaldoTotal(),this);
 
