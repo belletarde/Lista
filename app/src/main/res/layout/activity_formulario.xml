@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/formulario_telefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/telefone" />
+
+            <EditText
+                android:id="@+id/formulario_site"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/site" />
+
+            <EditText
+                android:id="@+id/formulario_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/endere_o" />
+
+            <EditText
+                android:id="@+id/formulario_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nome" />
+
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:numStars="5"
+                android:max="5"/>
+
+            <Button
+                android:id="@+id/formulario_salvar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/salvar"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
