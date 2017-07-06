@@ -10,10 +10,14 @@ import android.widget.Toast;
 
 public class FormularioActivity extends AppCompatActivity {
 
+    private FormularioHelper helper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
+        
+        this.helper = new FormularioHelper(this);
     }
 
     @Override
