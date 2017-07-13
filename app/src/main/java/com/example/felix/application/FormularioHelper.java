@@ -17,7 +17,7 @@ public class FormularioHelper {
 
     private Aluno aluno;
 
-    public FormularioHelper(FormularioActivity activity){
+    protected FormularioHelper(FormularioActivity activity){
         campoNome = (EditText) activity.findViewById(R.id.formulario_nome);
         campoEndereco = (EditText) activity.findViewById(R.id.formulario_endereco);
         campoTelefone = (EditText) activity.findViewById(R.id.formulario_telefone);
@@ -26,7 +26,7 @@ public class FormularioHelper {
         aluno = new Aluno();
     }
 
-    public Aluno getAluno() {
+    protected Aluno getAluno() {
         aluno.setNome(campoNome.getText().toString());
         aluno.setEndereco(campoEndereco.getText().toString());
         aluno.setTelefone(campoTelefone.getText().toString());
@@ -36,7 +36,7 @@ public class FormularioHelper {
         return aluno;
     }
 
-    public void preencheFormulario(Aluno aluno) {
+    protected void preencheFormulario(Aluno aluno) {
         campoNome.setText(aluno.getNome());
         campoEndereco.setText(aluno.getEndereco());
         campoTelefone.setText(aluno.getTelefone());
