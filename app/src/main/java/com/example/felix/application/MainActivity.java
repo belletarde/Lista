@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import com.example.felix.application.dao.AlunoDAO;
+
+import com.example.felix.application.modelo.Aluno;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,20 +20,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] alunos = {"Zezinho", "Luizinho", "Huguinho", "Zequinha"};
-
-        ListView list = (ListView) findViewById(R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alunos);
-        list.setAdapter(adapter);
-
         Button novoAluno = (Button) findViewById(R.id.novo_aluno);
         novoAluno.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FormularioActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                Intent intentVaiProFormulario = new Intent(MainActivity.this, FormularioActivity.class);
+                startActivity(intentVaiProFormulario);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregaLista();
+    }
+
+    private void carregaLista() {
+        AlunoDAO dao = new AlunoDAO(this);
+        List<Aluno> alunos = dao.buscaAlunos();
+        dao.close();
+
+        ListView listaAlunos = (ListView) findViewById(R.id.list);
+        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
+        listaAlunos.setAdapter(adapter);
     }
 }
 

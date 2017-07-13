@@ -1,9 +1,12 @@
 package com.example.felix.application.modelo;
-
 public class Aluno {
+
     private Long id;
-    private String nome, endereco, telefone, site;
-    private double nota;
+    private String nome;
+    private String endereco;
+    private String telefone;
+    private String site;
+    private Double nota;
 
     public Long getId() {
         return id;
@@ -45,12 +48,16 @@ public class Aluno {
         this.site = site;
     }
 
-    public double getNota() {
+    public Double getNota() {
         return nota;
     }
 
-    public void setNota(double nota) {
+    public void setNota(Double nota) {
         this.nota = nota;
     }
 
+    @Override
+    public String toString() {
+        return getId() + " - " + getNome();
+    }
 }
